@@ -51,3 +51,34 @@ TEST(Polinom, operator_minus)
 
   ASSERT_NO_THROW(P2 - P1);
 }
+
+TEST(Polinom, DOP_fractional_powers_DOP) //Дробные степени
+{
+  TMonom a(new double[3]{ 1.25, 2.45, 3.65 }, 3, 1);
+  TPolinomial P1;
+
+  ASSERT_NO_THROW(P1 += a);
+}
+
+TEST(Polinom, DOP_number_of_variables_K_DOP) //Число переменных K- 5
+{
+  TMonom a(new double[5]{ 1, 2, 3, 4, 5 }, 3, 1);
+  TMonom b(new double[10]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, 3, 1);
+  TPolinomial P1;
+
+  ASSERT_NO_THROW(P1 += a);
+  ASSERT_NO_THROW(P1 += b);
+}
+
+TEST(Polinom, DOP_save_data_in_file_DOP)
+{
+  TMonom a(new double[1]{ 3 }, 1, 1);
+  TMonom b(new double[1]{ 1 }, 1, 1);
+  TMonom c(new double[1]{ 2 }, 1, 1);
+  TPolinomial P1;
+  P1 += a;
+  P1 += b;
+  P1 += c;
+  
+  ASSERT_NO_THROW(P1.File(););
+}

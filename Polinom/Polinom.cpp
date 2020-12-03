@@ -231,3 +231,34 @@ TPolinomial TPolinomial::operator-(TPolinomial& _v)
     return res;
   }
 }
+
+void TPolinomial::File()
+{
+  ofstream outf("Data.txt"); //outf << x[i] << endl;
+  if (!outf)
+  {
+    throw "Error file";
+  }
+  if (this->root == 0)
+  {
+    return;
+  }
+
+  TMonom* temp = static_cast<TMonom*>(this->root);
+
+  while (temp != NULL)
+  {
+    outf << temp[0] << endl;
+    TMonom* temp2 = static_cast<TMonom*>(temp->GetNext());
+    if (temp2 != NULL)
+    {
+      outf << temp2[0] << endl;
+      temp = static_cast<TMonom*>(temp2->GetNext());
+    }
+    else
+    {
+      return;
+    }
+  }
+}
+

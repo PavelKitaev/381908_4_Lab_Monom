@@ -2,8 +2,10 @@
 #define _POLINOMIAL_
 
 #include <iostream>
+#include <fstream>
 #include "TMonom.h"
 #include "TList.h"
+
 
 using namespace std;
 
@@ -19,5 +21,8 @@ public:
   TPolinomial operator* (TPolinomial& _v);
   TPolinomial operator+ (TPolinomial& _v);
   TPolinomial operator- (TPolinomial& _v);
+
+  //DOP
+  void File();
 };
 #endif
