@@ -60,13 +60,12 @@ TEST(Polinom, DOP_fractional_powers_DOP) //Дробные степени
   ASSERT_NO_THROW(P1 += a);
 }
 
-TEST(Polinom, DOP_number_of_variables_K_DOP) //Число переменных K- 5
+TEST(Polinom, DOP_number_of_variables_K_DOP) //Число переменных K
 {
-  TMonom a(new double[5]{ 1, 2, 3, 4, 5 }, 3, 1);
-  TMonom b(new double[10]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, 3, 1);
+  TMonom a(new double[5]{ 1, 2, 3, 4, 5 }, 5, 1);
+  TMonom b(new double[6]{ 1, 2, 3, 4, 5, 6 }, 10, 1);
   TPolinomial P1;
-
-  ASSERT_NO_THROW(P1 += a);
+  P1 += a;
   ASSERT_NO_THROW(P1 += b);
 }
 
